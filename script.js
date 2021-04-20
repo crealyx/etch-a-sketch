@@ -67,7 +67,7 @@ gridContainer.addEventListener('mouseout', e => {
     }
 
     else if(rainbowToggle === 0 && currentColor === undefined){
-        colorValue = 'red';
+        colorValue = 'black';
     }
     else{
         colorValue = currentColor;
