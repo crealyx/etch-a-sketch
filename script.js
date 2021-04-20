@@ -2,12 +2,16 @@ const gridContainer = document.querySelector('#grid-container');
 const clear = document.querySelector('#clear');
 const color = document.querySelector('#color');
 const size = document.querySelector('#size');
+const rainbow = document.querySelector('#rainbow');
 const sliderContainer = document.querySelector('.slider-container');
 const slider = document.querySelector('#slider');
 const sliderValue = document.querySelector('.value');
 let defaultSize = 16;
 let grids = [];
 let colorValue = color.getAttribute('value');
+let rainbowToggle = 0;
+let random = '#'+Math.floor(Math.random()*16777215).toString(16);
+let currentColor;
 
 // create default canvas
 createCanvas(defaultSize);
@@ -32,17 +36,41 @@ function createCanvas(size) {
     };
 }
 
-// Paint canvas red
+// Paint canvas
 gridContainer.addEventListener('mouseover', e => {
     if(e.target.id !== 'grid-container'){
-        
         e.target.style.backgroundColor = `${colorValue}`;
     }
 });
 
+// Rainbow color
+rainbow.addEventListener('click', () => {
+    if(rainbowToggle === 0){
+        rainbow.textContent = 'Rainbow Colors: On';
+        rainbowToggle = 1;
+    }
+    else{
+        rainbow.textContent = 'Rainbow Colors: Off';
+        rainbowToggle = 0;
+    }
+    
+})
 
+// Paint rainbow
+gridContainer.addEventListener('mouseout', e => {
+    if(rainbowToggle === 1){
+        console.log('mouse left');
+        random = '#'+Math.floor(Math.random()*16777215).toString(16);
+        colorValue = random;
+    }
 
-
+    else if(rainbowToggle === 0 && currentColor === undefined){
+        colorValue = 'red';
+    }
+    else{
+        colorValue = currentColor;
+    }
+});
 
 // Toggle slider
 size.addEventListener('click', () => {
@@ -66,5 +94,5 @@ clear.addEventListener('click', () => {
 // Color picker
 color.addEventListener('input', e => {
     colorValue = e.target.value;
-    console.log(colorValue);
+    currentColor = e.target.value;
 })
