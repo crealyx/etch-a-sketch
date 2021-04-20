@@ -46,11 +46,13 @@ gridContainer.addEventListener('mouseover', e => {
 // Rainbow color
 rainbow.addEventListener('click', () => {
     if(rainbowToggle === 0){
-        rainbow.textContent = 'Rainbow Colors: On';
+        rainbow.textContent = `Rainbow Colors: On`;
+        rainbow.style.background = 'var(--linear)';
         rainbowToggle = 1;
     }
     else{
         rainbow.textContent = 'Rainbow Colors: Off';
+        rainbow.style.background = 'var(--rainbowDefault)';
         rainbowToggle = 0;
     }
     

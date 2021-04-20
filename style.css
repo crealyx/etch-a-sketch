@@ -1,36 +1,125 @@
-html,*{
-    padding: 0px;
-    margin: 0px;
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+
+:root {
+    --defaultColor: rgb(236, 236, 236);
+    --buttonDefault: rgb(255, 65, 17);
+    --rainbowDefault: rgb(255, 254, 249);
+    --buttonHover: rgb(0, 0, 0);;
+    --linear: linear-gradient(to right, rgb(0, 255, 128) , yellow, rgb(255, 0, 0));
 }
 
-body{
+
+html{
+    font-family: 'RocknRoll One', sans-serif;
+    font-size: 1.5rem;
+    background: rgb(107, 12, 3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 h1{
-    margin: auto;
-    width: 200px;
+    text-align: center;
     padding: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.slider-container p{
+    font-size: 0.7rem;
 }
 
 .buttons{
-    width: 300px;
+    width: 500px;
     margin: auto;
     display: flex;
     justify-content: space-between;
 }
 button{
     margin: 20px 10px;
-    width: 50%;
+    width: 200px;
+    height: 50px;
+    font-family: 'RocknRoll One', sans-serif;
+    font-size: 0.7rem;
+    appearance: none;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: var(--buttonDefault);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
 }
+
+button:hover{
+    border: 2px solid rgb(255, 3, 3);
+    background-color: var(--buttonHover);
+    color: rgba(255, 255, 255, 0.945);
+}
+button:active{
+    border: 2px solid rgb(255, 255, 255);
+    background-color: var(--buttonDefault);
+    color: rgb(3, 5, 82);
+}
+
+#rainbow{
+    width:500px;
+    color: black;
+    background-color: var(--rainbowDefault);
+}
+
+#rainbow:hover{
+    background-color: var(--rainbowDefault);
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(255, 255, 255);
+}
+
+
 
 .slider-container{
     margin: auto;
-    width: 300px;
+    max-width: 400px;
     visibility: hidden;
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px rgb(255, 255, 255) solid;
+    height: 80px;
+    
+    
 }
 
-#slider{
-    
+.slider-container p{
+    color: white;
+}
+
+#slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; 
+    height: 15px; 
+    background: #ffffff; 
+    outline: none; 
+    opacity: 0.9; 
+    -webkit-transition: .2s; 
+    transition: opacity .2s;
+    border: 1px solid rgba(11, 2, 58, 0.589);
+}
+
+#slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px; 
+    height: 25px; 
+    background: #ff0202; 
+    cursor: pointer;
+}
+
+#slider:hover{
+    background-color: #ffffff;
 }
 
 #color{
@@ -43,10 +132,18 @@ button{
     display: grid;
     max-width: 500px;
     min-height: 500px;
-    margin: 2rem auto;
+    margin: 10px auto;
     border: 4px solid black;
+    border-radius: 5px;
 }
+
 #grid-container div{
     border: 1px solid white;
-    background-color: rgb(212, 212, 212);
+    background-color: var(--defaultColor);
+}
+
+footer{
+    color: black;
+    margin-top: 70px;
+    text-align: center;
 }
