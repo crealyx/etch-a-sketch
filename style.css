@@ -9,9 +9,19 @@ body{
 h1{
     margin: auto;
     width: 200px;
-    padding: 50px;
+    padding: 30px;
 }
 
+.buttons{
+    width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    margin: 20px 10px;
+    width: 50%;
+}
 #grid-container{
     display: grid;
     grid-template-columns: repeat(16,20px);
