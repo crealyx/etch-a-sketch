@@ -2,13 +2,20 @@ const gridContainer = document.querySelector('#grid-container');
 const clear = document.querySelector('#clear');
 const color = document.querySelector('#color');
 
-let grids = [];
+// default canvas
+createCanvas(16);
 
-for(i = 0; i < 256; i++){
-    grids = document.createElement('div');
-    grids.classList.add('canvas');
-    gridContainer.append(grids);
-};
+function createCanvas(size) {
+    for(i = 0; i < size*size; i++){
+        let grids = [];
+        grids = document.createElement('div');
+        gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+        gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+        grids.classList.add('canvas');
+        gridContainer.append(grids);
+    };
+}
+
 
 gridContainer.addEventListener('mouseover', e => {
     if(e.target.id !== 'grid-container'){
